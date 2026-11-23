@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fellas Wager Tracker</title>
+
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <h1>Fellas Wager Tracker</h1>
+        <p>Welcome to the Fellas Wager Tracker!</p>
+    </header>
+
+    <main id="dashboard-view">
+
+        <section id="auth-section">
+            <h2>Administrator Login</h2>
+
+            <form id="login-form">
+                <input type="email"
+                       id="login-email"
+                       placeholder="Email"
+                       required>
+
+                <input type="password"
+                       id="login-password"
+                       placeholder="Password"
+                       required>
+
+                <button type="submit">Log In</button>
+            </form>
+
+            <div id="admin-session" hidden>
+                <p>Logged in as administrator</p>
+
+                <button id="logout-button" type="button">
+                    Log Out
+                </button>
+            </div>
+
+            <p id="auth-message" role="status"></p>
+        </section>
+
+        <h2>Dashboard</h2>
+
+        <p>
+            Total fights:
+            <span id="total-fights">0</span>
+        </p>
+
+        <section>
+            <h2>Player Leaderboard</h2>
+
+            <table id="leaderboard">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Player</th>
+                        <th>Points</th>
+                        <th>Played</th>
+                        <th>Wins</th>
+                        <th>Losses</th>
+                        <th>Win Rate</th>
+                    </tr>
+                </thead>
+
+                <tbody id="leaderboard-body"></tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Match History</h2>
+
+            <div id="fight-history"></div>
+        </section>
+
+        <section>
+            <h2>Add New Fight</h2>
+
+            <form id="fight-form">
+
+                <!-- Match date -->
+                <div class="form-group">
+                    <label for="match-date">Match Date</label>
+
+                    <input type="date"
+                           id="match-date"
+                           name="match-date"
+                           required>
+                </div>
+
+                <h3>Team A</h3>
+
+                <input type="text"
+                       id="team-a"
+                       placeholder="MachineGunX, Monkmad">
+
+                <h3>Team B</h3>
+
+                <input type="text"
+                       id="team-b"
+                       placeholder="Dicleee, Nightmare2g">
+
+                <h3>Gamemodes</h3>
+
+                <div id="gamemodes-container"></div>
+
+                <button type="button" id="add-gamemode">
+                    + Add Gamemode
+                </button>
+
+                <button type="submit">
+                    Submit Fight
+                </button>
+
+            </form>
+        </section>
+
+    </main>
+
+    <main id="player-view" hidden>
+
+        <button id="back-to-dashboard" type="button">
+            ← Back to Dashboard
+        </button>
+
+        <section>
+            <div id="player-profile"></div>
+        </section>
+
+    </main>
+
+</body>
+</html>
